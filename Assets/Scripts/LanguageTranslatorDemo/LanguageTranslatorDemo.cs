@@ -26,12 +26,13 @@ public class LanguageTranslatorDemo : MonoBehaviour
         };
         _languageTranslator = new LanguageTranslator(languageTranslatorCredential);
 
-        Translate("Where is the library?");
+//        Translate("Where is the library?");
     }
 
     public void Translate(string text)
     {
-        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, _translationModel);
+        ResponseText.text = text;
+//        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, _translationModel);
     }
 
     private void OnTranslate(Translations response, Dictionary<string, object> customData)
