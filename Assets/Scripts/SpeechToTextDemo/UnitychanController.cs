@@ -22,15 +22,23 @@ public class UnitychanController : MonoBehaviour
 
         if (motionKeyword.Contains("go"))
         {
-            _animator.CrossFade("Run", 0f);
+            _animator.CrossFade("Run", 0.2f);
         }
         else if (motionKeyword.Contains("jump"))
         {
-            _animator.CrossFade("Jump", 0f);
+            _animator.CrossFade("Jump", 0.2f);
         }
         else if (motionKeyword.Contains("stop"))
         {
-            _animator.CrossFade("Last", 0f);
+            _animator.CrossFade("Last", 0.2f);
+        }
+        else if (motionKeyword.Contains("down"))
+        {
+            _animator.CrossFade("Down", 0.2f);
+        }
+        else if (motionKeyword.Contains("up"))
+        {
+            _animator.CrossFade("Up", 0.2f);
         }
     }
 }

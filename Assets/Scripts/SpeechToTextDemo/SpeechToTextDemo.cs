@@ -15,6 +15,7 @@ public class SpeechToTextDemo : MonoBehaviour
     private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
 
     public Text ResultsField;
+    public UnitychanController UnitychanController;
 
     private int _recordingRoutine = 0;
     private string _microphoneID = null;
@@ -161,7 +162,9 @@ public class SpeechToTextDemo : MonoBehaviour
                 {
                     string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                     Log.Debug("ExampleStreaming.OnRecognize()", text);
+
                     ResultsField.text = text;
+                    UnitychanController.ChangeMotion(text);
                 }
 
                 if (res.keywords_result != null && res.keywords_result.keyword != null)
