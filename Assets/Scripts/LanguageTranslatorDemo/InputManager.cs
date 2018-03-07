@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using WebSocketSharp;
 
 public class InputManager : MonoBehaviour
 {
@@ -20,14 +21,17 @@ public class InputManager : MonoBehaviour
     public void OnTextInputEnd()
     {
         var text = _inputField.text;
-        LanguageTranslator.Translate(text);
+        if (!text.IsNullOrEmpty())
+        {
+            LanguageTranslator.Translate(text);
+        }
 
         Initialize();
     }
 
     private void Initialize()
     {
-        _inputField.text = "";
+//        _inputField.text = "";
         _inputField.ActivateInputField();
     }
 	

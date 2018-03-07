@@ -10,9 +10,11 @@ using UnityEngine.UI;
 public class LanguageTranslatorDemo : MonoBehaviour
 {
     public Text ResponseText;
+    public Dropdown DropDown;
 
+    private DropDownCallback _dropDownCallback;
     private LanguageTranslator _languageTranslator;
-    private string _translationModel = "en-es";
+    private string _translationModel = "en-ja";
 
     void Start()
     {
@@ -24,15 +26,18 @@ public class LanguageTranslatorDemo : MonoBehaviour
             Password = "yfWQPlOjkuKx",
             Url = "https://gateway.watsonplatform.net/language-translator/api"
         };
+
         _languageTranslator = new LanguageTranslator(languageTranslatorCredential);
 
-//        Translate("Where is the library?");
+        _dropDownCallback = DropDown.GetComponent<DropDownCallback>();
+        SetEvent();
     }
+
+    
 
     public void Translate(string text)
     {
-        ResponseText.text = text;
-//        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, _translationModel);
+        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, _translationModel);
     }
 
     private void OnTranslate(Translations response, Dictionary<string, object> customData)
@@ -43,5 +48,17 @@ public class LanguageTranslatorDemo : MonoBehaviour
     private void OnFail(RESTConnector.Error error, Dictionary<string, object> customData)
     {
         Log.Debug("LanguageTranslatorDemo.OnFail()", "Error: {0}", error.ToString());
+    }
+
+    private void SetEvent()
+    {
+        if (_dropDownCallback == null)
+        {
+            return;
+        }
+        _dropDownCallback.ModelChangeEvent += model =>
+        {
+            _translationModel = model;
+        };
     }
 }
