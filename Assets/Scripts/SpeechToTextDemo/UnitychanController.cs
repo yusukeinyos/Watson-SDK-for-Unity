@@ -41,4 +41,25 @@ public class UnitychanController : MonoBehaviour
             _animator.CrossFade("Up", 0.2f);
         }
     }
+
+    public void ChangeEmotion(string emotionKeyword)
+    {
+        if (_animator == null)
+        {
+            return;
+        }
+
+        if (emotionKeyword.Contains("go"))
+        {
+            _animator.CrossFade("Run", 0.2f);
+        }
+        else if (emotionKeyword.Contains("jump"))
+        {
+            _animator.CrossFade("Jump", 0.2f);
+        }
+        else if (emotionKeyword.Contains("stop"))
+        {
+            _animator.CrossFade("Last", 0.2f);
+        }
+    }
 }

@@ -7,6 +7,7 @@ using WebSocketSharp;
 public class InputManager : MonoBehaviour
 {
     public LanguageTranslatorDemo LanguageTranslator;
+    public ToneAnalizerDemo ToneAnalizer;
 
     private InputField _inputField;
 
@@ -23,7 +24,14 @@ public class InputManager : MonoBehaviour
         var text = _inputField.text;
         if (!text.IsNullOrEmpty())
         {
-            LanguageTranslator.Translate(text);
+            if(LanguageTranslator != null)
+            {
+                LanguageTranslator.Translate(text);
+            }
+            if (ToneAnalizer != null)
+            {
+                ToneAnalizer.Analize(text);
+            }
         }
 
         Initialize();
