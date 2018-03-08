@@ -49,17 +49,21 @@ public class UnitychanController : MonoBehaviour
             return;
         }
 
-        if (emotionKeyword.Contains("go"))
+        switch (emotionKeyword)
         {
-            _animator.CrossFade("Run", 0.2f);
-        }
-        else if (emotionKeyword.Contains("jump"))
-        {
-            _animator.CrossFade("Jump", 0.2f);
-        }
-        else if (emotionKeyword.Contains("stop"))
-        {
-            _animator.CrossFade("Last", 0.2f);
+            case "Joy":
+                _animator.CrossFade("Smile", 0.2f);
+                break;
+            case "Anger":
+            case "Disgust":
+                _animator.CrossFade("Angry", 0.2f);
+                break;
+            case "Sadness":
+                _animator.CrossFade("Sad", 0.2f);
+                break;
+            case "Fear":
+                _animator.CrossFade("Fear", 0.2f);
+                break;
         }
     }
 }
