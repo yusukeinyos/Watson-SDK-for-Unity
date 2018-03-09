@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public class SpeechToTextDemo : MonoBehaviour
 {
 
-    private string _username = "b9d3172f-485c-4794-9c3e-f6a90585f708";
-    private string _password = "SVd5xq0HuuIj";
+    private string _username = "3d2767c6-787e-4dfc-89f7-5230e7aceb07";
+    private string _password = "MpzoDeD1L4as";
     private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
 
     public Text ResultsField;

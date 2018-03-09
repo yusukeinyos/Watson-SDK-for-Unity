@@ -22,8 +22,8 @@ public class LanguageTranslatorDemo : MonoBehaviour
 
         Credentials languageTranslatorCredential = new Credentials()
         {
-            Username = "33240307-9213-4840-a91b-69f48c9301db",
-            Password = "VddpLtzQn50h",
+            Username = "8cf97e2c-9786-43aa-a560-0562acf00229",
+            Password = "xdXLIFUG6DHz",
             Url = "https://gateway.watsonplatform.net/language-translator/api"
         };
 
@@ -37,7 +37,7 @@ public class LanguageTranslatorDemo : MonoBehaviour
 
     public void Translate(string text)
     {
-        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, "en-ja");
+        _languageTranslator.GetTranslation(OnTranslate, OnFail, text, _translationModel);
     }
 
     private void OnTranslate(Translations response, Dictionary<string, object> customData)

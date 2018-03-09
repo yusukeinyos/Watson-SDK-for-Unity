@@ -14,8 +14,8 @@ public class ToneAnalizerDemo : MonoBehaviour
     public Text ResultText;
     public UnitychanController UnitychanController;
 
-    private string _username = "ca73cad6-cca8-4a5a-89f9-3ed2ec0b87b5";
-    private string _password = "kBt4hhHpt6rI";
+    private string _username = "24cd5ea2-0d31-461b-9518-2e46ed357f0b";
+    private string _password = "hheCQlyZ3Ea5";
     private string _url = "https://gateway.watsonplatform.net/tone-analyzer/api";
 
     private ToneAnalyzer _toneAnalyzer;
